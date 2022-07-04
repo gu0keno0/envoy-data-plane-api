@@ -12,4 +12,4 @@ git clone https://github.com/open-telemetry/opentelemetry-proto.git
 git clone https://github.com/prometheus/client_model.git ./prometheus_client_model
 popd
 
-protoc --proto_path=./proto-deps/prometheus_client_model --proto_path=./proto-deps/opentelemetry-proto --proto_path=./proto-deps/opencensus-proto/src --proto_path=./proto-deps/protoc-gen-validate --proto_path=./proto-deps/cncf-xds --proto_path=./proto-deps/googleapis --proto_path=. --go_out=plugins=grpc:./proto-gen-golang $(find ./ -iname "*proto" | grep -v './proto-deps')
+protoc --proto_path=./proto-deps/golang-protobuf --proto_path=./proto-deps/prometheus_client_model --proto_path=./proto-deps/opentelemetry-proto --proto_path=./proto-deps/opencensus-proto/src --proto_path=./proto-deps/protoc-gen-validate --proto_path=./proto-deps/cncf-xds --proto_path=./proto-deps/googleapis --proto_path=. --validate_out="lang=go:./proto-gen-golang" --go_out=plugins=grpc:./proto-gen-golang $(find ./ -iname "*proto" | grep -v './proto-deps')
